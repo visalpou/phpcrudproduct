@@ -1,5 +1,6 @@
 <?php include 'db.php'; ?>
 <?php include 'insert.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,23 +53,24 @@
 						<?php 
 						while($row = $result->fetch_assoc()) {
 							?>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]" value="1">
-									<label for="checkbox1"></label>
-								</span>
-							</td>
-							<td><?php echo $row['name'] ?></td>
-							<td><?php echo $row['desc'] ?></td>
-							<td><?php echo $row['price'] ?></td>
-							<td> <img src="img/<?php echo $row['img'] ?>" alt="" width="45px" height="45px"></td>
-							<td>
-								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-										data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i
-										class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-							</td>
-						</tr>
+							<tr class="detail">
+								<td>
+									<span class="custom-checkbox">
+										<input type="checkbox" id="checkbox1" name="options[]" value="1">
+										<label for="checkbox1"></label>
+									</span>
+								</td>
+								<td><?php echo $row['name'] ?></td>
+								<td><?php echo $row['desc'] ?></td>
+								<td><?php echo $row['price'] ?></td>
+								<td> <img src="<?php echo $row['img'] ?>" alt="" width="45px" height="45px"></td>
+								<td>
+									<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
+											data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+									<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i
+											class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								</td>
+							</tr>
 						<?php } ?>
 
 					</tbody>
@@ -92,7 +94,7 @@
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="index.php" method="POST">
+				<form action="index.php" method="POST" enctype="multipart/form-data">
 					<div class="modal-header">
 						<h4 class="modal-title">Add Product</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -203,6 +205,9 @@
 				$("#selectAll").prop("checked", false);
 			}
 		});
+		$(".btn-danger").click(function(){
+			$(".detail").remove();
+		})
 	});
 </script>
 
