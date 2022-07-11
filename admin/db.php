@@ -15,6 +15,4 @@
 
     $sql = 'SELECT * FROM tbl_product';
     $result = $conn->query($sql);
-    
-    // $conn->close();
 ?>

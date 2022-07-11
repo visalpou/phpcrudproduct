@@ -274,7 +274,7 @@
 														<div class="product-img">
 															<a href="product-details.html">
 																<img class="default-img"
-																	src="../admin/<?php echo $row['img'] ?>" alt="#">
+																	src="../admin/img/<?php echo $row['img'] ?>" alt="#">
 																<img class="hover-img" src="../admin/<?php echo $row['img'] ?>"
 																	alt="#">
 															</a>
